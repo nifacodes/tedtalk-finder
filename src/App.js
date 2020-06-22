@@ -52,7 +52,7 @@ class App extends React.Component {
 
   setAlert = (msg, type) => {
     this.setState({ alert: { msg, type } })
-    setTimeout(() => { this.setState({ alert: null }) }, 5000)
+    setTimeout(() => { this.setState({ alert: null }) }, 3000)
   }
 
   searchTalk = async (query) => {
