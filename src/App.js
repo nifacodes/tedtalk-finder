@@ -1,4 +1,5 @@
 
+// Refactor to use contextapi
 import React from 'react';
 import './App.css';
 import { Navbar, TedTalks, Alert, About, TedTalkCardDetails } from './components'
