@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+@keyframes growAnimation {
   from {
-    transform: rotate(0deg);
+    opacity: 1;
+    transform: scale(0);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+body {
+  /* background-color: #ECD2C3 */
+  background-color: #110c11;
+}
+:root {
+  --primary-color:  #faf0dc;
+  
+}
+.test{
+  border: red solid 2px;
+}
+
+.bg-custom{
+  /* background-color:  #A0817F; */
+  background-color: #211a23;
+}
+
+.form-search-btn{
+  border-radius: solid 0.5px #faf0dc;
+  background-color: transparent;
+  border:  #faf0dc solid 1px !important;
+}
+
+.form-search-btn:hover, .form-search-btn:focus, .form-search-btn:active{
+  background-color: #800000 !important;
+}
+
+.icon {
+  color: #faf0dc;
+  width: auto;
+}
+
+.brand{
+/* color: #5e0000 !important; */
+/* color: #a14747 !important; */
+/* color: #990000 !important; */
+color: #faf0dc !important;
+}
+
+
+.search-size{
+  display: flex;
+  width: auto;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+i{
+  /* color: #990000; */
+  color: #800000;;
+
+}
+
+a {
+  /* color: #990000; */
+  color: #faf0dc !important;
+  text-decoration: none !important;
+}
+
+.thumbnail-img {
+  width: 310px;
+  height: 200px;
+}
+
+.btn-watch {
+  background-color: #800000 !important;
+  border: 1px solid #800000;
+  color: #faf0dc;
+}
+
+.spinner {
+  /* margin: 0px auto;
+  width: 64px;
+  height: 64px; */
+  /* background-color: #800000;
+  border-radius: 50%;
+  animation: growAnimation 0.9s ease-in-out infinite; */
+}
+
+
+@media only screen and (min-width: 992px) {
+  .search-size{
+    width: 50%;
   }
 }
