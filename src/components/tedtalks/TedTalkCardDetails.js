@@ -17,7 +17,7 @@ class TedTalkCardDetails extends Component {
                 <Col>
                     <Card style={{ borderRadius: '5px', backgroundColor: '#211a23', color: '#faf0dc' }}>
                         <Card.Body>
-                            <iframe width="100%" height="360"
+                            <iframe title={fulltitle} width="100%" height="360"
                                 src={`https://www.youtube.com/embed/${id}`}></iframe>
                             <Card.Title>{fulltitle}</Card.Title>
                             <Card.Text>
