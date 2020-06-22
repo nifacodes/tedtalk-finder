@@ -20,7 +20,7 @@ class TedTalkCard extends Component {
                 <Col xs={12} md={3} >
                     <Card style={{ borderRadius: '5px', backgroundColor: '#211a23', color: '#faf0dc' }} >
                         {/* {loading ? <Card.Img className="" variant="top" src={this.props.thumbailsById[youTubeID]} style={{ borderRadius: '5px' }} /> : <Container > <Spinner /> </Container>} */}
-                        {this.props.thumbailsById[youTubeID] ? <Card.Img className="" variant="top" src={this.props.thumbailsById[youTubeID]} style={{ borderRadius: '5px' }} /> : <Card.Header><Container><Spinner spinnerStyle={spinnerStyle} /> </Container></Card.Header>}
+                        {this.props.thumbailsById[youTubeID] ? <Card.Img className="" variant="top" src="https://i.ytimg.com/vi_webp/jiUKpX09zo4/maxresdefault.webp" style={{ borderRadius: '5px' }} /> : <Card.Header><Container><Spinner spinnerStyle={spinnerStyle} /> </Container></Card.Header>}
 
                         <Card.Body>
                             <Card.Title>{withoutNameStr}</Card.Title>

@@ -86,7 +86,7 @@ class App extends React.Component {
       return data;
 
     } catch (e) {
-      const staticData = await axios.get('http://localhost:3000/staticdata.json');
+      const staticData = await axios.get('staticdata.json');
       this.setState({ ...staticData.data });
       this.setState({ loading: false })
       return []
