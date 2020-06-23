@@ -6,7 +6,6 @@ import TedTalkReducer from './tedTalkReducer';
 
 import {
     SEARCH_TALK,
-    SET_ALERT_STATE,
     SET_LOADING,
     GET_TEDTALK_CARD_DETAIL,
     CLEAR_RESULTS,
@@ -18,7 +17,7 @@ const TedTalkState = props => {
     const initialState = {
         totalTalks: [],
         tedTalkDetails: {},
-        thumbailsById: {},
+        thumbnailsById: {},
         loading: false,
         alert: null
     }
@@ -29,7 +28,6 @@ const TedTalkState = props => {
     const [state, dispatch] = useReducer(TedTalkReducer, initialState);
 
     // search tedtalk
-
     const searchTalk = async (query) => {
         // dispatches setLoading to reducer 
         setLoading()
@@ -58,14 +56,62 @@ const TedTalkState = props => {
     }
 
     // get thumbnails
+    const getThumbnail = async (vidId) => {
+        try {
+            const { data } = await axios.get('https://youtube-video-info1.p.rapidapi.com/youtube-info/', {
+                headers: { crossdomain: true, 'x-rapidapi-host': 'youtube-video-info1.p.rapidapi.com', 'x-rapidapi-key': process.env.REACT_APP_TEDTALK_API_KEY },
+                params: { url: `https://www.youtube.com/watch?v=${vidId}` },
+            });
+
+            // setThumbnailsById({ thumbnailsById: { ...thumbnailsById, ...{ [`${vidId}`]: data.info.thumbnail } } });
+
+            //   setThumbnailsById(prevState => ({
+            //     ...prevState,
+            //     ...{ [`${vidId}`]: data.info.thumbnail }
+            //   }))
+            dispatch({
+                type: GET_THUMBNAIL,
+                payload: { [`${vidId}`]: data.info.thumbnail }
+            })
+
+
+
+        } catch (e) {
+            //   const staticData = await axios.get('staticdata.json');
+            //   setStaticState(staticData.data);
+            //   setLoading(false)
+            return []
+        }
+    }
+
+    // set loading 
+    const setLoading = () => dispatch({ type: SET_LOADING })
 
     // clear results
     const clearResults = () => dispatch({ type: CLEAR_RESULTS })
 
     // get ted talk card details 
+    const getTedTalkCardDetails = async (vidId) => {
+        setLoading()
+        try {
+            const { data } = await axios.get('https://youtube-video-info1.p.rapidapi.com/youtube-info/', {
+                headers: { crossdomain: true, 'x-rapidapi-host': 'youtube-video-info1.p.rapidapi.com', 'x-rapidapi-key': process.env.REACT_APP_TEDTALK_API_KEY },
+                params: { url: `https://www.youtube.com/watch?v=${vidId}` },
+            });
 
-    // set loading 
-    const setLoading = () => dispatch({ type: SET_LOADING })
+            //setTedTalkDetails(data.info);
+            dispatch({
+                type: GET_TEDTALK_CARD_DETAIL,
+                payload: data.info
+            })
+
+        } catch (e) {
+            //   const staticData = await axios.get('/tedtalks/staticdata.json');
+            //   setStaticState(staticData.data);
+            //   setLoading(false)
+            return []
+        }
+    }
 
     // Wrap app with provider to allow, take in value props to make it public 
 
@@ -73,11 +119,13 @@ const TedTalkState = props => {
         value={{
             totalTalks: state.totalTalks,
             tedTalkDetails: state.tedTalkDetails,
-            thumbailsById: state.thumbailsById,
+            thumbnailsById: state.thumbnailsById,
             loading: state.loading,
             alert: state.alert,
             searchTalk,
             clearResults,
+            getTedTalkCardDetails,
+            getThumbnail
 
         }}
     >

@@ -3,19 +3,21 @@ import { Form, FormControl, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types'
 //internal
 import TedTalkContext from '../../context/tedtalk/tedTalkContext';
+import AlertContext from '../../context/alert/alertContext';
 
-const Search = ({ setAlert }) => {
+const Search = () => {
     const tedtalkContext = useContext(TedTalkContext)
+    const alertContext = useContext(AlertContext)
+
     const [query, setQuery] = useState('');
 
     const onChange = (e) => setQuery(e.target.value)
     const onSubmit = (e) => {
         e.preventDefault();
         if (query === '') {
-            setAlert("Please enter something", "danger");
+            alertContext.setAlert("Please enter something", "danger");
 
         } else {
-            console.log("first time using context!")
             tedtalkContext.searchTalk(query)
         }
     }
@@ -41,9 +43,6 @@ const Search = ({ setAlert }) => {
     );
 }
 
-Search.propTypes = {
-    setAlert: PropTypes.func.isRequired,
-}
 
 export default Search;
 

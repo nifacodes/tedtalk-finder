@@ -1,12 +1,16 @@
 // Ted Talk Video Details
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Card, Button, Col, Container } from 'react-bootstrap'
 import { LinkContainer } from "react-router-bootstrap";
 import PropTypes from 'prop-types'
 //internal 
 import Spinner from '../layout/Spinner'
+import TedTalkContext from '../../context/tedtalk/tedTalkContext';
 
-const TedTalkCardDetails = ({ tedTalkDetails: { description, fulltitle, view_count, id }, loading, getTedTalkCardDetails, match }) => {
+
+const TedTalkCardDetails = ({ match }) => {
+    const tedTalkContext = useContext(TedTalkContext);
+    const { tedTalkDetails: { description, fulltitle, view_count, id }, loading, getTedTalkCardDetails } = tedTalkContext;
 
     useEffect(() => {
         getTedTalkCardDetails(match.params.videoId)
@@ -18,7 +22,7 @@ const TedTalkCardDetails = ({ tedTalkDetails: { description, fulltitle, view_cou
     if (loading) return <Container fluid style={{ height: '90vh' }}><Spinner spinnerStyle={spinnerStyle} /></Container>
     return (
         <>
-            <Col>
+            {<Col>
                 <Card style={{ borderRadius: '5px', backgroundColor: '#211a23', color: '#faf0dc' }}>
                     <Card.Body>
                         <iframe title={fulltitle} width="100%" height="360"
@@ -35,18 +39,12 @@ const TedTalkCardDetails = ({ tedTalkDetails: { description, fulltitle, view_cou
                         </LinkContainer>
                     </Card.Body>
                 </Card >
-            </Col >
+            </Col >}
         </>
     );
 }
 
 TedTalkCardDetails.propTypes = {
-    tedTalkDetails: PropTypes.object,
-    description: PropTypes.string,
-    fulltitle: PropTypes.string,
-    view_count: PropTypes.number,
-    id: PropTypes.string,
-    loading: PropTypes.bool,
     getTedTalkCardDetails: PropTypes.func
 }
 

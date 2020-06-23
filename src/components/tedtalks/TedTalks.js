@@ -1,29 +1,29 @@
 // All tedtalks search results
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 // internal
 import TedTalkCard from './TedTalkCard';
 import Spinner from './../layout/Spinner'
+import TedTalkContext from '../../context/tedtalk/tedTalkContext';
 
-const TedTalks = ({ getThumbnail, totalTalks, thumbnailsById, loading }) => {
 
+const TedTalks = () => {
+    const tedTalkContext = useContext(TedTalkContext)
+    const { loading, totalTalks } = tedTalkContext;
 
     if (loading) return <Container fluid style={{ height: '92vh' }}>
         <Spinner /> </Container>
+
     return (
-        <>
-            {
-                totalTalks.map(tedTalkItem => {
-                    { console.log("thumbnails talkkssss---", thumbnailsById[tedTalkItem.youTubeID]) }
+        <> {totalTalks &&
 
-                    return (
-                        <TedTalkCard key={tedTalkItem.youTubeID.toString()} tedTalkItem={tedTalkItem}
-                            getThumbnail={getThumbnail} thumbnailsById={thumbnailsById} loading={loading} />
-
-                    )
-                })
-            }
+            totalTalks.map(tedTalkItem => {
+                return (
+                    <TedTalkCard key={tedTalkItem.youTubeID.toString()} tedTalkItem={tedTalkItem} />
+                )
+            })
+        }
         </>
     );
 }

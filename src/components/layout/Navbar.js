@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 //internal
 import Search from './../tedtalks/Search';
 
-const Navbar = ({ title, icon, setAlert }) => {
+const Navbar = ({ title, icon }) => {
 
     return (
         <BSNavbar collapseOnSelect expand="lg" className="bg-custom" variant="dark">
@@ -15,7 +15,7 @@ const Navbar = ({ title, icon, setAlert }) => {
             <BSNavbar.Toggle aria-controls="responsive-navbar-nav" />
 
             <BSNavbar.Collapse id="responsive-navbar-nav">
-                <Search setAlert={setAlert} />
+                <Search />
                 <Nav className="ml-auto">
                     <Nav className="m-2 ">
                         <Link to='/'>Home</Link>
@@ -38,7 +38,6 @@ Navbar.defaultProps = {
 Navbar.propTypes = {
     title: PropTypes.string,
     icon: PropTypes.string,
-    setAlert: PropTypes.func
 }
 
 export default Navbar;

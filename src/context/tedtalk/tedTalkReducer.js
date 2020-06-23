@@ -1,7 +1,6 @@
 // Reducer decides what to do with the action
 import {
     SEARCH_TALK,
-    SET_ALERT_STATE,
     SET_LOADING,
     GET_TEDTALK_CARD_DETAIL,
     CLEAR_RESULTS,
@@ -26,6 +25,18 @@ export default (state, action) => {
         case CLEAR_RESULTS:
             return {
                 totalTalks: []
+            }
+        case GET_THUMBNAIL:
+
+            return {
+                ...state,
+                thumbnailsById: { ...state.thumbnailsById, ...action.payload }
+            }
+        case GET_TEDTALK_CARD_DETAIL:
+            return {
+                ...state,
+                tedTalkDetails: action.payload,
+                loading: false,
             }
 
         default:
