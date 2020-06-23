@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert as BSAlert, Container } from 'react-bootstrap';
+import PropTypes from 'prop-types'
 
 // TODO: Set default tags args, then have a function that 
 // randomly selects the tags property from search results
@@ -20,8 +21,11 @@ const Alert = ({ alert, tags }) => {
 
         )
     )
+}
 
-
+Alert.propTypes = {
+    alert: PropTypes.object
+    //tags 
 }
 
 export default Alert;

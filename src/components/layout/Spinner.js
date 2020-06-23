@@ -1,5 +1,7 @@
 import React from 'react';
 import { Spinner as BSSpinner } from 'react-bootstrap';
+import PropTypes from 'prop-types'
+
 const Spinner = ({ spinnerStyle }) => {
     return (
         <BSSpinner style={spinnerStyle} animation="border" role="status">
@@ -10,5 +12,8 @@ const Spinner = ({ spinnerStyle }) => {
     )
 }
 
+Spinner.propTypes = {
+    spinnerStyle: PropTypes.object
+}
 
 export default Spinner;

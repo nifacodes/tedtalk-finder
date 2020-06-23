@@ -1,9 +1,11 @@
 import React from 'react';
 import { Navbar as BSNavbar, Nav, } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
+//internal
 import Search from './../tedtalks/Search';
 
-const Navbar = ({ title, icon, searchTalk, clearResults, setAlert }) => {
+const Navbar = ({ title, icon, setAlert }) => {
 
     return (
         <BSNavbar collapseOnSelect expand="lg" className="bg-custom" variant="dark">
@@ -13,7 +15,7 @@ const Navbar = ({ title, icon, searchTalk, clearResults, setAlert }) => {
             <BSNavbar.Toggle aria-controls="responsive-navbar-nav" />
 
             <BSNavbar.Collapse id="responsive-navbar-nav">
-                <Search searchTalk={searchTalk} clearResults={clearResults} setAlert={setAlert} />
+                <Search setAlert={setAlert} />
                 <Nav className="ml-auto">
                     <Nav className="m-2 ">
                         <Link to='/'>Home</Link>
@@ -33,5 +35,10 @@ Navbar.defaultProps = {
     icon: 'fab fa-youtube'
 }
 
+Navbar.propTypes = {
+    title: PropTypes.string,
+    icon: PropTypes.string,
+    setAlert: PropTypes.func
+}
 
 export default Navbar;
