@@ -62,12 +62,6 @@ const TedTalkState = props => {
                 params: { url: `https://www.youtube.com/watch?v=${vidId}` },
             });
 
-            // setThumbnailsById({ thumbnailsById: { ...thumbnailsById, ...{ [`${vidId}`]: data.info.thumbnail } } });
-
-            //   setThumbnailsById(prevState => ({
-            //     ...prevState,
-            //     ...{ [`${vidId}`]: data.info.thumbnail }
-            //   }))
             dispatch({
                 type: GET_THUMBNAIL,
                 payload: { [`${vidId}`]: data.info.thumbnail }
