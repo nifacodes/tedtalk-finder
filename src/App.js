@@ -1,5 +1,5 @@
-import React, { useState, useContext } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 //internal
@@ -14,7 +14,7 @@ import AlertState from './context/alert/AlertState'
 const App = () => {
 
   // refactor name to tedtalkCardDetails
-  const [staticState, setStaticState] = useState({})
+  // const [staticState, setStaticState] = useState({})
 
   return (
     <>

@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import { Form, FormControl, Button } from 'react-bootstrap';
-import PropTypes from 'prop-types'
 //internal
 import TedTalkContext from '../../context/tedtalk/tedTalkContext';
 import AlertContext from '../../context/alert/alertContext';
