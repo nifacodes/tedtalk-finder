@@ -15,7 +15,7 @@ const Search = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         if (query === '') {
-            alertContext.setAlert("Please enter something", "danger");
+            alertContext.setAlert("Please enter something!", "danger");
 
         } else {
             tedtalkContext.searchTalk(query)

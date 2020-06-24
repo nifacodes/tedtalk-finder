@@ -14,11 +14,11 @@ const Alert = ({ tags }) => {
     return (
         alert !== null && (
             <Container style={{ height: '92vh' }}>
-                <BSAlert variant={`${alertContext.alert.type}`} dismissible style={{}}>
-                    <BSAlert.Heading>{`${alert.msg}`}</BSAlert.Heading>
+                <BSAlert variant={`${alertContext.alert.type}`}>
+                    {/* <BSAlert.Heading>{`${alert.msg}`}</BSAlert.Heading> */}
+                    <h4 style={{ display: 'flex', textAlign: 'center', justifyContent: 'center' }}>{`${alert.msg}`}</h4>
                     <h5>
                         Maybe give one of these a try? [Health, Animal, Design]
-                        {/* {tags.forEach(tag=>(<p>{tag}</p>))}  */}
                     </h5>
                 </BSAlert>
             </Container>
