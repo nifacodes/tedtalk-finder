@@ -38,7 +38,6 @@ const TedTalkState = props => {
             });
             //setTotalTalks(data);
             // setLoading(false); dont need this 
-            console.log("im dispatching to payload..", data)
             dispatch({
                 type: SEARCH_TALK,
                 payload: data

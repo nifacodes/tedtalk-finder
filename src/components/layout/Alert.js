@@ -10,7 +10,6 @@ import AlertContext from '../../context/alert/alertContext';
 const Alert = ({ tags }) => {
     const alertContext = useContext(AlertContext)
     const { alert } = alertContext;
-    console.log(alert, "here it is");
     return (
         alert !== null && (
             <Container style={{ height: '92vh' }}>
