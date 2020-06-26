@@ -22,12 +22,14 @@ const TedTalkCard = ({ tedTalkItem: { name, speaker, viewCount, youTubeID, speak
     const nameAndColon = `${speaker}:`;
     const withoutNameStr = name.replace(nameAndColon, "")
     const spinnerStyle = { color: '#800000', width: '5rem', height: '5rem', position: 'relative' }
-    return (
 
+    console.log(thumbnailsById);
+
+    return (
         <>
-            <Col xs={12} md={3} >
+            <Col xs={12} md={3}>
                 <Card style={{ borderRadius: '5px', backgroundColor: '#211a23', color: '#faf0dc' }} >
-                    {thumbnailsById[youTubeID] ? <Card.Img className="" variant="top" src={thumbnailsById[youTubeID]} pstyle={{ borderRadius: '5px', height: '180', width: '286' }} /> : <Card.Header><Container><Spinner spinnerStyle={spinnerStyle} /> </Container></Card.Header>}
+                    {thumbnailsById[youTubeID] ? <Card.Img className="" variant="top" src={thumbnailsById[youTubeID]} style={{ borderRadius: '5px', height: '180', width: '286' }} /> : <Card.Header><Container><Spinner spinnerStyle={spinnerStyle} /> </Container></Card.Header>}
                     <Card.Body>
                         <Card.Title>{withoutNameStr}</Card.Title>
                         <Card.Text>
