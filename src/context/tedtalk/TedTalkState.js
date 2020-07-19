@@ -31,6 +31,7 @@ const TedTalkState = props => {
     const searchTalk = async (query) => {
         // dispatches setLoading to reducer 
         setLoading()
+        clearResults();
         try {
             const { data } = await axios.get('https://bestapi-ted-v1.p.rapidapi.com/talksByDescription', {
                 headers: { crossdomain: true, 'x-rapidapi-host': 'bestapi-ted-v1.p.rapidapi.com', 'x-rapidapi-key': process.env.REACT_APP_TEDTALK_API_KEY },
@@ -42,7 +43,6 @@ const TedTalkState = props => {
                 type: SEARCH_TALK,
                 payload: data
             })
-
             // return data;
 
         } catch (e) {
@@ -97,7 +97,6 @@ const TedTalkState = props => {
                 type: GET_TEDTALK_CARD_DETAIL,
                 payload: data.info
             })
-
         } catch (e) {
             //   const staticData = await axios.get('/tedtalks/staticdata.json');
             //   setStaticState(staticData.data);

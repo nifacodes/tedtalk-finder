@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-
 //internal
 import './App.css';
 import {
@@ -24,24 +23,22 @@ const App = () => {
             <Navbar />
             <Alert />
             <Switch>
-              <Route exact path='/' render={props => (
-                <>
-                  <Home />
-                  <Container className="mt-3">
-                    <Row>
-                      <TedTalks />
-                    </Row>
-                  </Container>
-                </>
-              )} />
-              <Route exact path='/tedtalks/:videoId' render={props => (
-                <><Container>
+              <Route exact path='/' component={Home} />
+              <Route exact path='/tedtalks/:videoId' render={(props) => (
+                <Container>
                   <Row>
                     <TedTalkCardDetails {...props} />
                   </Row>
-                </Container> </>
+                </Container>
               )} />
               <Route exact path='/about' component={About} />
+              <Route path='/:search' render={props => (
+                <Container className="mt-3">
+                  <Row>
+                    <TedTalks />
+                  </Row>
+                </Container>
+              )} />
             </Switch>
           </Router>
         </AlertState>

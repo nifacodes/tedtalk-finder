@@ -1,7 +1,9 @@
 // Card Display For One Talk After Search Results
 import React, { useEffect, useContext } from 'react';
 import { Card, Button, Col, Container } from 'react-bootstrap'
-import { LinkContainer } from "react-router-bootstrap";
+import { LinkContainer, IndexLinkContainer } from "react-router-bootstrap";
+import { Link } from 'react-router-dom';
+
 import CountUp from 'react-countup';
 import PropTypes from 'prop-types'
 // internal
@@ -23,7 +25,6 @@ const TedTalkCard = ({ tedTalkItem: { name, speaker, viewCount, youTubeID, speak
     const withoutNameStr = name.replace(nameAndColon, "")
     const spinnerStyle = { color: '#800000', width: '5rem', height: '5rem', position: 'relative' }
 
-    console.log(thumbnailsById);
 
     return (
         <>
@@ -41,9 +42,6 @@ const TedTalkCard = ({ tedTalkItem: { name, speaker, viewCount, youTubeID, speak
                         <Card.Text>
                             <CountUp start={0} end={viewCount} duration={4} separator="," />{'  views'}
                         </Card.Text>
-                        {/* <LinkContainer to={`/tedtalks/${youTubeID}`}>
-                        <Button className="btn-watch" onClick={() => getTedTalkCardDetails(youTubeID)}>Watch</Button>
-                    </LinkContainer> */}
                         <LinkContainer to={`/tedtalks/${youTubeID}`}>
                             <Button className="btn-watch">Watch</Button>
                         </LinkContainer>
@@ -54,15 +52,15 @@ const TedTalkCard = ({ tedTalkItem: { name, speaker, viewCount, youTubeID, speak
     );
 }
 
-TedTalkCard.propTypes = {
-    name: PropTypes.bool,
-    speaker: PropTypes.string,
-    viewCount: PropTypes.number,
-    youTubeID: PropTypes.string,
-    speakerBio: PropTypes.string,
-    getThumbnail: PropTypes.func,
-    thumbnailsById: PropTypes.object
-}
+// TedTalkCard.propTypes = {
+//     name: PropTypes.bool,
+//     speaker: PropTypes.string,
+//     viewCount: PropTypes.number,
+//     youTubeID: PropTypes.string,
+//     speakerBio: PropTypes.string,
+//     getThumbnail: PropTypes.func,
+//     thumbnailsById: PropTypes.object
+// }
 
 
 export default TedTalkCard;

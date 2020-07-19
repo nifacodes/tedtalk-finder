@@ -16,7 +16,6 @@ export default (state, action) => {
                 loading: true
             }
         case SEARCH_TALK:
-            // why twice console.log("search_talk", action.payload)
             return {
                 ...state,
                 totalTalks: action.payload,
@@ -24,7 +23,9 @@ export default (state, action) => {
             }
         case CLEAR_RESULTS:
             return {
-                totalTalks: []
+                totalTalks: [],
+                thumbnailsById: {},
+                tedTalkDetails: {}
             }
         case GET_THUMBNAIL:
 
@@ -33,11 +34,13 @@ export default (state, action) => {
                 thumbnailsById: { ...state.thumbnailsById, ...action.payload }
             }
         case GET_TEDTALK_CARD_DETAIL:
+            console.log("GET_TEDTALK_CARD_DETAIL", action.payload)
             return {
                 ...state,
                 tedTalkDetails: action.payload,
                 loading: false,
             }
+
 
         default:
             return state;

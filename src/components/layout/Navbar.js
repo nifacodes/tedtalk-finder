@@ -9,9 +9,11 @@ const Navbar = ({ title, icon }) => {
 
     return (
         <BSNavbar collapseOnSelect expand="lg" className="bg-custom" variant="dark">
-            <BSNavbar.Brand href="/" className="brand">
-                <i className={icon} /> {title}
-            </BSNavbar.Brand>
+            <Link to="/">
+                <BSNavbar.Brand className="brand">
+                    <i className={icon} /> {title}
+                </BSNavbar.Brand>
+            </Link>
             <BSNavbar.Toggle aria-controls="responsive-navbar-nav" />
 
             <BSNavbar.Collapse id="responsive-navbar-nav">
