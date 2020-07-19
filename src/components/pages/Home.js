@@ -1,11 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import TedTalkContext from '../../context/tedtalk/tedTalkContext';
 
 const Home = () => {
-    const tedTalkContext = useContext(TedTalkContext)
-    const { totalTalks } = tedTalkContext;
-
     return (
         <Container style={{ height: '90vh' }}>
             <Row>

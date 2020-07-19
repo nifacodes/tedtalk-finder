@@ -1,11 +1,9 @@
 // Card Display For One Talk After Search Results
 import React, { useEffect, useContext } from 'react';
 import { Card, Button, Col, Container } from 'react-bootstrap'
-import { LinkContainer, IndexLinkContainer } from "react-router-bootstrap";
-import { Link } from 'react-router-dom';
+import { LinkContainer } from "react-router-bootstrap";
 
 import CountUp from 'react-countup';
-import PropTypes from 'prop-types'
 // internal
 import Spinner from '../layout/Spinner'
 import TedTalkContext from '../../context/tedtalk/tedTalkContext';

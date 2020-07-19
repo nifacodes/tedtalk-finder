@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Form, FormControl, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { LinkContainer } from "react-router-bootstrap";
 
 //internal
 import TedTalkContext from '../../context/tedtalk/tedTalkContext';
@@ -14,14 +13,14 @@ const Search = () => {
     const [query, setQuery] = useState('');
 
     const onChange = (e) => setQuery(e.target.value)
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (query === '') {
-            alertContext.setAlert("Please enter something!", "danger");
-        } else {
-            tedtalkContext.searchTalk(query)
-        }
-    }
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (query === '') {
+    //         alertContext.setAlert("Please enter something!", "danger");
+    //     } else {
+    //         tedtalkContext.searchTalk(query)
+    //     }
+    // }
 
     const clearSearchResults = () => {
         setQuery('');
