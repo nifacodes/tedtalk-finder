@@ -1,6 +1,6 @@
 // Card Display For One Talk After Search Results
 import React, { useEffect, useContext } from 'react';
-import { Card, Button, Col, Container } from 'react-bootstrap'
+import { Card, Button, Col, Container, Image } from 'react-bootstrap'
 import { LinkContainer } from "react-router-bootstrap";
 
 import CountUp from 'react-countup';
@@ -28,7 +28,7 @@ const TedTalkCard = ({ tedTalkItem: { name, speaker, viewCount, youTubeID, speak
         <>
             <Col xs={12} md={3}>
                 <Card style={{ borderRadius: '5px', backgroundColor: '#211a23', color: '#faf0dc' }} >
-                    {thumbnailsById[youTubeID] ? <Card.Img variant="top" src={thumbnailsById[youTubeID]} style={{ borderRadius: '5px', maxWidth: '100%', height: 'auto' }} /> : <Card.Header><Container><Spinner spinnerStyle={spinnerStyle} /> </Container></Card.Header>}
+                    {thumbnailsById[youTubeID] ? <Image variant="top" fluid src={thumbnailsById[youTubeID]} style={{ borderRadius: '5px', width: '100%', height: '100%' }} /> : <Card.Header><Container><Spinner spinnerStyle={spinnerStyle} /> </Container></Card.Header>}
                     <Card.Body>
                         <Card.Title>{withoutNameStr}</Card.Title>
                         <Card.Text>
