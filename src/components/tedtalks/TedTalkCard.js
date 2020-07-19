@@ -28,7 +28,7 @@ const TedTalkCard = ({ tedTalkItem: { name, speaker, viewCount, youTubeID, speak
         <>
             <Col xs={12} md={3}>
                 <Card style={{ borderRadius: '5px', backgroundColor: '#211a23', color: '#faf0dc' }} >
-                    {thumbnailsById[youTubeID] ? <Card.Img className="" variant="top" src={thumbnailsById[youTubeID]} style={{ borderRadius: '5px', height: '100%', width: '100%' }} /> : <Card.Header><Container><Spinner spinnerStyle={spinnerStyle} /> </Container></Card.Header>}
+                    {thumbnailsById[youTubeID] ? <Card.Img className="" variant="top" src="https://i.ytimg.com/vi/J-I2eScPkEw/maxresdefault.jpg" style={{ borderRadius: '5px', height: '100%', width: '100%' }} /> : <Card.Header><Container><Spinner spinnerStyle={spinnerStyle} /> </Container></Card.Header>}
                     <Card.Body>
                         <Card.Title>{withoutNameStr}</Card.Title>
                         <Card.Text>
