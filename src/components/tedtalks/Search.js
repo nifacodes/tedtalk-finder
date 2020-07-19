@@ -13,14 +13,13 @@ const Search = () => {
     const [query, setQuery] = useState('');
 
     const onChange = (e) => setQuery(e.target.value)
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (query === '') {
-    //         alertContext.setAlert("Please enter something!", "danger");
-    //     } else {
-    //         tedtalkContext.searchTalk(query)
-    //     }
-    // }
+    const searchTalk = (e) => {
+        if (query === '') {
+            alertContext.setAlert("Please enter something!", "danger");
+        } else {
+            tedtalkContext.searchTalk(query)
+        }
+    }
 
     const clearSearchResults = () => {
         setQuery('');
@@ -37,8 +36,8 @@ const Search = () => {
                     </Button>
                 </Link>
             )}
-            <Link to={`/${query}`}>
-                <Button className="form-search-btn" onClick={() => tedtalkContext.searchTalk(query)}>
+            <Link to={`/${query}`} onClick={(e) => searchTalk()}>
+                <Button className="form-search-btn" >
                     <i className="fas fa-search icon" />
                 </Button>
             </Link>

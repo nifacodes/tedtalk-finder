@@ -34,7 +34,6 @@ export default (state, action) => {
                 thumbnailsById: { ...state.thumbnailsById, ...action.payload }
             }
         case GET_TEDTALK_CARD_DETAIL:
-            console.log("GET_TEDTALK_CARD_DETAIL", action.payload)
             return {
                 ...state,
                 tedTalkDetails: action.payload,
