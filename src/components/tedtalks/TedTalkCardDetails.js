@@ -2,7 +2,6 @@
 import React, { useEffect, useContext } from 'react';
 import { Card, Button, Col, Container } from 'react-bootstrap'
 import { LinkContainer } from "react-router-bootstrap";
-import PropTypes from 'prop-types'
 //internal 
 import Spinner from '../layout/Spinner'
 import TedTalkContext from '../../context/tedtalk/tedTalkContext';
@@ -44,9 +43,6 @@ const TedTalkCardDetails = ({ match }) => {
     );
 }
 
-TedTalkCardDetails.propTypes = {
-    getTedTalkCardDetails: PropTypes.func
-}
 
 
 

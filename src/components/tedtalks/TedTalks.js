@@ -1,7 +1,6 @@
 // All tedtalks search results
 import React, { useContext } from 'react';
 import { Container } from 'react-bootstrap'
-import PropTypes from 'prop-types'
 // internal
 import TedTalkCard from './TedTalkCard';
 import Spinner from './../layout/Spinner'
@@ -26,10 +25,6 @@ const TedTalks = () => {
         }
         </>
     );
-}
-
-TedTalks.propTypes = {
-    getThumbnail: PropTypes.func,
 }
 
 
