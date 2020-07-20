@@ -4,7 +4,8 @@ import {
     SET_LOADING,
     GET_TEDTALK_CARD_DETAIL,
     CLEAR_RESULTS,
-    GET_THUMBNAIL
+    GET_THUMBNAIL,
+    SET_EMPTY_RESULTS
 
 } from '../types'
 
@@ -15,10 +16,16 @@ export default (state, action) => {
                 ...state,
                 loading: true
             }
+        case SET_EMPTY_RESULTS:
+            return {
+                ...state,
+                emptyResults: true
+            }
         case SEARCH_TALK:
             return {
                 ...state,
                 totalTalks: action.payload,
+                emptyResults: false,
                 loading: false
             }
         case CLEAR_RESULTS:

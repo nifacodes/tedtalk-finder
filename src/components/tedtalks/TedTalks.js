@@ -5,23 +5,22 @@ import { Container } from 'react-bootstrap'
 import TedTalkCard from './TedTalkCard';
 import Spinner from './../layout/Spinner'
 import TedTalkContext from '../../context/tedtalk/tedTalkContext';
-
+import NotFound from '../pages/NotFound'
 
 const TedTalks = () => {
     const tedTalkContext = useContext(TedTalkContext)
-    const { loading, totalTalks } = tedTalkContext;
+    const { loading, totalTalks, emptyResults } = tedTalkContext;
 
     if (loading) return <Container fluid style={{ height: '92vh' }}>
         <Spinner /> </Container>
 
     return (
-        <> {totalTalks &&
-
+        <> {!emptyResults ?
             totalTalks.map(tedTalkItem => {
                 return (
                     <TedTalkCard key={tedTalkItem.youTubeID.toString()} tedTalkItem={tedTalkItem} />
                 )
-            })
+            }) : <NotFound />
         }
         </>
     );

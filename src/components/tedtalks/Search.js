@@ -36,7 +36,7 @@ const Search = () => {
                     </Button>
                 </Link>
             )}
-            <Link to={`/${query}`} onClick={(e) => searchTalk()}>
+            <Link to={`/search/${query}`} onClick={(e) => searchTalk()}>
                 <Button className="form-search-btn" >
                     <i className="fas fa-search icon" />
                 </Button>

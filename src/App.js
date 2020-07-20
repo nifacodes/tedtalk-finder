@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import {
   Navbar, TedTalks, Alert, About,
-  TedTalkCardDetails, Home
+  TedTalkCardDetails, Home, NotFound
 } from './components'
 import TedTalkState from './context/tedtalk/TedTalkState'
 import AlertState from './context/alert/AlertState'
@@ -32,13 +32,15 @@ const App = () => {
                 </Container>
               )} />
               <Route exact path='/about' component={About} />
-              <Route path='/:search' render={props => (
+
+              <Route exact path='/search/:search' render={props => (
                 <Container className="mt-3">
                   <Row>
                     <TedTalks />
                   </Row>
                 </Container>
               )} />
+              <Route component={NotFound} />
             </Switch>
           </Router>
         </AlertState>

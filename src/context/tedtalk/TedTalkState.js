@@ -9,13 +9,15 @@ import {
     SET_LOADING,
     GET_TEDTALK_CARD_DETAIL,
     CLEAR_RESULTS,
-    GET_THUMBNAIL
+    GET_THUMBNAIL,
+    SET_EMPTY_RESULTS
 
 } from '../types'
 
 const TedTalkState = props => {
     const initialState = {
         totalTalks: [],
+        emptyResults: false,
         tedTalkDetails: {},
         thumbnailsById: {},
         loading: false,
@@ -32,6 +34,7 @@ const TedTalkState = props => {
         // dispatches setLoading to reducer 
         setLoading()
         clearResults();
+
         try {
             const { data } = await axios.get('https://bestapi-ted-v1.p.rapidapi.com/talksByDescription', {
                 headers: { crossdomain: true, 'x-rapidapi-host': 'bestapi-ted-v1.p.rapidapi.com', 'x-rapidapi-key': process.env.REACT_APP_TEDTALK_API_KEY },
@@ -39,10 +42,14 @@ const TedTalkState = props => {
             });
             //setTotalTalks(data);
             // setLoading(false); dont need this 
-            dispatch({
-                type: SEARCH_TALK,
-                payload: data
-            })
+            if (data.length === 0) {
+                setEmptyResults()
+            } else {
+                dispatch({
+                    type: SEARCH_TALK,
+                    payload: data
+                })
+            }
             // return data;
 
         } catch (e) {
@@ -80,6 +87,10 @@ const TedTalkState = props => {
     // set loading 
     const setLoading = () => dispatch({ type: SET_LOADING })
 
+
+    const setEmptyResults = () => dispatch({ type: SET_EMPTY_RESULTS })
+
+
     // clear results
     const clearResults = () => dispatch({ type: CLEAR_RESULTS })
 
@@ -114,6 +125,7 @@ const TedTalkState = props => {
             thumbnailsById: state.thumbnailsById,
             loading: state.loading,
             alert: state.alert,
+            emptyResults: state.emptyResults,
             searchTalk,
             clearResults,
             getTedTalkCardDetails,
