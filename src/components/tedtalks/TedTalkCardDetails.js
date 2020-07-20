@@ -33,7 +33,7 @@ const TedTalkCardDetails = ({ match }) => {
                         <Card.Text>
                             {description}
                         </Card.Text>
-                        <LinkContainer to='/:search'>
+                        <LinkContainer to='/search/:search'>
                             <Button className="btn-watch">Back To Search</Button>
                         </LinkContainer>
                     </Card.Body>
